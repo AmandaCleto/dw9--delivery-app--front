@@ -14,12 +14,16 @@ class ThemeConfig {
   static final theme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
-        elevation: 0,
-        centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.black)),
+      elevation: 0,
+      centerTitle: true,
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
+    ),
     primaryColor: ColorsApp.i.primary,
     colorScheme: ColorScheme.fromSeed(
       seedColor: ColorsApp.i.primary,
+      primary: ColorsApp.i.primary,
       secondary: ColorsApp.i.secondary,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -33,8 +37,6 @@ class ThemeConfig {
       border: _defaultInputBorder,
       enabledBorder: _defaultInputBorder,
       focusedBorder: _defaultInputBorder,
-      errorBorder: _defaultInputBorder,
-      disabledBorder: _defaultInputBorder,
       labelStyle: TextStyles.i.textRegular.copyWith(color: Colors.black),
       errorStyle: TextStyles.i.textRegular.copyWith(color: Colors.redAccent),
     ),

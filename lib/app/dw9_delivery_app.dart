@@ -1,9 +1,6 @@
-import 'package:dw9_delivery_app/app/core/ui/styles/app_styles.dart';
-import 'package:dw9_delivery_app/app/core/ui/styles/colors_app.dart';
 import 'package:dw9_delivery_app/app/core/ui/theme/theme_config.dart';
+import 'package:dw9_delivery_app/app/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Dw9DeliveryApp extends StatelessWidget {
   const Dw9DeliveryApp({super.key});
@@ -14,7 +11,7 @@ class Dw9DeliveryApp extends StatelessWidget {
       title: 'Delivery App',
       theme: ThemeConfig.theme,
       routes: {
-        '/': (context) => Container(),
+        '/': (context) => const SplashPage(),
       },
     );
   }
