@@ -11,8 +11,8 @@ class ColorsApp {
     return _instance!;
   }
 
-  Color get primary => const Color(0X007D21);
-  Color get secondary => const Color(0XF88B0C);
+  Color get primary => const Color(0XFF007D21);
+  Color get secondary => const Color(0XFFF88B0C);
 }
 
 extension ColorsAppExtension on BuildContext {
