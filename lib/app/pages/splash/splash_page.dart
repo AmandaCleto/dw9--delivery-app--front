@@ -30,10 +30,12 @@ class _SplashPageState extends State<SplashPage> {
             ),
             Center(
               child: DeliveryButton(
-                onPressed: () {},
                 label: 'ACESSAR',
                 height: 35.0,
                 width: context.percentWidth(0.6),
+                onPressed: () {
+                  Navigator.of(context).popAndPushNamed('/home');
+                },
               ),
             ),
             Column(
