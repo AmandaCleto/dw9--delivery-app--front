@@ -10,6 +10,7 @@ class Dw9DeliveryApp extends StatelessWidget {
     return MaterialApp(
       title: 'Delivery App',
       theme: ThemeConfig.theme,
+      debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const SplashPage(),
       },

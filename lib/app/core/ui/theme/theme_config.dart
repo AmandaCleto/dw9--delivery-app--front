@@ -14,6 +14,7 @@ class ThemeConfig {
   static final theme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
+      color: Colors.white,
       elevation: 0,
       centerTitle: true,
       iconTheme: IconThemeData(
