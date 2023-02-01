@@ -13,7 +13,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDetailPage extends StatefulWidget {
   final ProductModel product;
-  const ProductDetailPage({Key? key, required this.product}) : super(key: key);
+  final OrderProductDto? order;
+  const ProductDetailPage({
+    Key? key,
+    required this.product,
+    this.order,
+  }) : super(key: key);
 
   @override
   State<ProductDetailPage> createState() => _ProductDetailPageState();
@@ -21,6 +26,13 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState
     extends BaseState<ProductDetailPage, ProductDetailController> {
+  @override
+  void initState() {
+    super.initState();
+    final amount = widget.order?.amount ?? 1;
+    controller.initial(amount, widget.order != null);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -8,7 +8,10 @@ import 'package:dw9_delivery_app/app/repositories/products/products_repository.d
 class HomeController extends Cubit<HomeState> {
   final ProductsRepository _productsRepository;
 
-  HomeController(this._productsRepository) : super(const HomeState.initial());
+  HomeController(this._productsRepository)
+      : super(
+          const HomeState.initial(),
+        );
 
   Future<void> loadProducts() async {
     emit(state.copyWith(status: HomeStateStatus.loading));
@@ -30,8 +33,15 @@ class HomeController extends Cubit<HomeState> {
   void addOrUpdateBag(OrderProductDto orderProduct) {
     //duplicating a list with a new memory instance [...]
     final shoppingBag = [...state.shoppingBag];
+    final orderIndex = shoppingBag
+        .indexWhere((orderP) => orderP.product == orderProduct.product);
 
-    shoppingBag.add(orderProduct);
+    if (orderIndex > -1) {
+      //update existent product
+      shoppingBag[orderIndex] = orderProduct;
+    } else {
+      shoppingBag.add(orderProduct);
+    }
 
     emit(state.copyWith(shoppingBag: shoppingBag));
   }
