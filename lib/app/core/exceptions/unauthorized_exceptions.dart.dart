@@ -1,0 +1,1 @@
+class UnauthorizedExceptionsDart implements Exception {}
