@@ -7,7 +7,7 @@ import 'package:dw9_delivery_app/app/core/exceptions/repository_exceptions.dart'
 import 'package:dw9_delivery_app/app/core/restClient/custom_dio.dart';
 import 'package:dw9_delivery_app/app/models/auth_model.dart';
 
-import '../../core/exceptions/unauthorized_exceptions.dart.dart';
+import '../../core/exceptions/unauthorized_exceptions.dart';
 import './auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -28,7 +28,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on DioError catch (e, s) {
       if (e.response?.statusCode == 403) {
         log('Permissão negada', error: e, stackTrace: s);
-        throw UnauthorizedExceptionsDart();
+        throw UnauthorizedExceptions();
       }
       log('Erro ao realizar login', error: e, stackTrace: s);
       throw RepositoryExceptions(
