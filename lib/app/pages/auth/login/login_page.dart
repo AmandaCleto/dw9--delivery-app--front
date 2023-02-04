@@ -77,6 +77,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                         decoration: const InputDecoration(
                           labelText: 'Senha',
                         ),
+                        obscureText: true,
                         validator: Validatorless.multiple([
                           Validatorless.required("Senha Obrigatória"),
                         ]),
