@@ -56,7 +56,7 @@ class _OrderProductTileState extends State<OrderProductTile> {
                           color: context.colors.secondary,
                         ),
                       ),
-                      DeliveryIncrementDecrementButton(
+                      DeliveryIncrementDecrementButton.compact(
                         amount: 1,
                         incrementTap: () {},
                         decrementTap: () {},

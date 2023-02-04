@@ -8,17 +8,26 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
   final int amount;
   final VoidCallback incrementTap;
   final VoidCallback decrementTap;
+  final bool _compact;
 
   const DeliveryIncrementDecrementButton({
     super.key,
     required this.amount,
     required this.incrementTap,
     required this.decrementTap,
-  });
+  }) : _compact = false;
+
+  const DeliveryIncrementDecrementButton.compact({
+    super.key,
+    required this.amount,
+    required this.incrementTap,
+    required this.decrementTap,
+  }) : _compact = true;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: _compact == true ? const EdgeInsets.all(5.0) : null,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.grey,
@@ -35,7 +44,7 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
               child: Text(
                 "-",
                 style: context.textStyles.textMedium.copyWith(
-                  fontSize: 22.0,
+                  fontSize: _compact == true ? 10.0 : 22.0,
                   color: Colors.grey,
                 ),
               ),
@@ -46,7 +55,7 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
             child: Text(
               amount.toString(),
               style: context.textStyles.textRegular.copyWith(
-                fontSize: 17.0,
+                fontSize: _compact == true ? 13.0 : 17.0,
                 color: context.colors.secondary,
               ),
             ),
@@ -58,7 +67,7 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
               child: Text(
                 "+",
                 style: context.textStyles.textMedium.copyWith(
-                  fontSize: 22.0,
+                  fontSize: _compact == true ? 10.0 : 22.0,
                   color: context.colors.secondary,
                 ),
               ),
