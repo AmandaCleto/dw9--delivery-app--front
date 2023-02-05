@@ -13,6 +13,7 @@ enum OrderStatus {
   loading,
   loaded,
   error,
+  updateOrder,
 }
 
 class OrderState extends Equatable {
@@ -55,4 +56,7 @@ class OrderState extends Equatable {
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
+
+  double get totalOrder => orderProducts.fold(
+      0.0, (previousValue, product) => previousValue + product.totalPrice);
 }

@@ -29,4 +29,28 @@ class OrderController extends Cubit<OrderState> {
       );
     }
   }
+
+  void incrementProduct(int index) {
+    final orders = [...state.orderProducts];
+    final order = orders[index];
+    orders[index] = order.copyWith(amount: order.amount + 1);
+
+    emit(
+      state.copyWith(orderProducts: orders, status: OrderStatus.updateOrder),
+    );
+  }
+
+  void decrementProduct(int index) {
+    final orders = [...state.orderProducts];
+    final order = orders[index];
+    final amount = orders[index].amount;
+
+    if (amount == 1) {
+    } else {
+      orders[index] = order.copyWith(amount: order.amount - 1);
+    }
+    emit(
+      state.copyWith(orderProducts: orders, status: OrderStatus.updateOrder),
+    );
+  }
 }
