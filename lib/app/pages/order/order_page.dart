@@ -3,9 +3,9 @@ import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_app_bar.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_button.dart';
 import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
 import 'package:dw9_delivery_app/app/models/product_model.dart';
-import 'package:dw9_delivery_app/app/pages/auth/order/widgets/order_field.dart';
-import 'package:dw9_delivery_app/app/pages/auth/order/widgets/order_product_tile.dart';
-import 'package:dw9_delivery_app/app/pages/auth/order/widgets/payments_types_field.dart';
+import 'package:dw9_delivery_app/app/pages/order/widgets/order_field.dart';
+import 'package:dw9_delivery_app/app/pages/order/widgets/order_product_tile.dart';
+import 'package:dw9_delivery_app/app/pages/order/widgets/payments_types_field.dart';
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 
