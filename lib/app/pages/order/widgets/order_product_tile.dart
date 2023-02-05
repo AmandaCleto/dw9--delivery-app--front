@@ -50,7 +50,9 @@ class _OrderProductTileState extends State<OrderProductTile> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        widget.orderProduct.product.price.currencyPTBR,
+                        (widget.orderProduct.amount *
+                                widget.orderProduct.product.price)
+                            .currencyPTBR,
                         style: context.textStyles.textMedium.copyWith(
                           fontSize: 14.0,
                           color: context.colors.secondary,
