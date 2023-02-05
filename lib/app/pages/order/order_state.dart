@@ -14,7 +14,8 @@ enum OrderStatus {
   loaded,
   error,
   updateOrder,
-  confirmRemoveProduct;
+  confirmRemoveProduct,
+  emptyBag,
 }
 
 class OrderState extends Equatable {
