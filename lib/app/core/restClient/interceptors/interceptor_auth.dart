@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dw9_delivery_app/app/core/global/global_context.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class InterceptorAuth extends Interceptor {
@@ -10,20 +11,15 @@ class InterceptorAuth extends Interceptor {
 
     options.headers['Authorization'] = 'Bearer $accessToken';
 
-    print(options.headers);
-
     handler.next(options);
   }
 
   @override
-  Future<void> onError(DioError error, ErrorInterceptorHandler handler) async {
-    if (error.response?.statusCode == 401) {
-      //redirecionar a login
-      final sp = await SharedPreferences.getInstance();
-      final accessToken = sp.clear();
-      handler.next(error);
+  Future<void> onError(DioError err, ErrorInterceptorHandler handler) async {
+    if (err.response?.statusCode == 401) {
+      GlobalContext.i.loginExpire();
     } else {
-      handler.next(error);
+      handler.next(err);
     }
   }
 }
