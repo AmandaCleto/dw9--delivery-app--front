@@ -46,11 +46,30 @@ class OrderController extends Cubit<OrderState> {
     final amount = orders[index].amount;
 
     if (amount == 1) {
+      if (state.status != OrderStatus.confirmRemoveProduct) {
+        emit(OrderConfirmDeleteProductState(
+          index: index,
+          orderProduct: order,
+          orderProducts: state.orderProducts,
+          paymentTypes: state.paymentTypes,
+          status: OrderStatus.confirmRemoveProduct,
+          errorMessage: state.errorMessage,
+        ));
+        return;
+      } else {
+        orders.removeAt(index);
+      }
     } else {
       orders[index] = order.copyWith(amount: order.amount - 1);
     }
     emit(
       state.copyWith(orderProducts: orders, status: OrderStatus.updateOrder),
+    );
+  }
+
+  void cancelDeleteProcess() {
+    emit(
+      state.copyWith(status: OrderStatus.loaded),
     );
   }
 }

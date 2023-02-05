@@ -39,6 +39,43 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
     super.onReady();
   }
 
+  void _showConfirmProductDialog(OrderConfirmDeleteProductState state) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+              'Deseja excluir o Produto ${state.orderProduct.product.name}'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                controller.cancelDeleteProcess();
+              },
+              child: Text(
+                'Cancelar',
+                style: context.textStyles.textBold.copyWith(
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                controller.decrementProduct(state.index);
+              },
+              child: Text(
+                'Confirmar',
+                style: context.textStyles.textBold,
+              ),
+            )
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<OrderController, OrderState>(
@@ -49,6 +86,12 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
           error: () {
             hideLoader();
             showError(state.errorMessage ?? 'Erro não informado');
+          },
+          confirmRemoveProduct: () {
+            hideLoader();
+            if (state is OrderConfirmDeleteProductState) {
+              _showConfirmProductDialog(state);
+            }
           },
         );
       },

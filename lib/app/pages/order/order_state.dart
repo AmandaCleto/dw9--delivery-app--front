@@ -14,6 +14,7 @@ enum OrderStatus {
   loaded,
   error,
   updateOrder,
+  confirmRemoveProduct;
 }
 
 class OrderState extends Equatable {
@@ -59,4 +60,18 @@ class OrderState extends Equatable {
 
   double get totalOrder => orderProducts.fold(
       0.0, (previousValue, product) => previousValue + product.totalPrice);
+}
+
+class OrderConfirmDeleteProductState extends OrderState {
+  final OrderProductDto orderProduct;
+  final int index;
+
+  const OrderConfirmDeleteProductState({
+    required this.orderProduct,
+    required this.index,
+    required super.status,
+    required super.paymentTypes,
+    required super.orderProducts,
+    super.errorMessage,
+  });
 }
