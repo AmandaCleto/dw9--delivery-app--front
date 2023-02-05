@@ -8,7 +8,9 @@ class InterceptorAuth extends Interceptor {
     final sp = await SharedPreferences.getInstance();
     final accessToken = sp.getString('accessToken');
 
-    options.headers['Authorization'] = 'Barear $accessToken';
+    options.headers['Authorization'] = 'Bearer $accessToken';
+
+    print(options.headers);
 
     handler.next(options);
   }
