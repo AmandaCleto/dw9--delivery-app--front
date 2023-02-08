@@ -20,7 +20,7 @@ class CustomDio extends DioForNative {
         responseHeader: true,
       ),
     );
-    _interceptorAuth = InterceptorAuth();
+    _interceptorAuth = InterceptorAuth(dio: this);
   }
 
   CustomDio auth() {
