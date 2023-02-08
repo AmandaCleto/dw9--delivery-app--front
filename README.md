@@ -4,10 +4,10 @@
 [![Dart](https://amandacleto.github.io/images-for-projects/public/images/github-readme/icon-dart.svg)](https://dart.dev/)
 
 
->Dw9 is an online free event made by Rodrigo Rahman, totally focused to build an entire application by teaching concepts of IT architecture, project patterns and more.
+>Dark Week (DW) is an online free event made by Rodrigo Rahman, totally focused to build an entire application by teaching concepts of IT architecture, project patterns and more.
 
 
-For the first time I participated in the Dart Week, in its 9th edition, and here is my experience with:
+For the first time, I participated in the DW, in its 9th edition, and here is my experience with:
 
 <br>
 
